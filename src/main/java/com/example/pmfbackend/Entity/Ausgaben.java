@@ -10,7 +10,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "Ausgaben")
-public class Ausgaben {
+public class Ausgaben extends Finanzen {
 
     @Id
     private Long id;
