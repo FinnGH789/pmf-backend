@@ -7,7 +7,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "Einnahmen")
-public class Einnahmen extends Finanzen {
+public class Einnahmen {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
