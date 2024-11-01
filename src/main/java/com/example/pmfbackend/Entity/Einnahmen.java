@@ -1,9 +1,8 @@
 package com.example.pmfbackend.Entity;
 
-
 import jakarta.persistence.*;
-
 import java.util.Objects;
+
 
 @Entity
 @Table(name = "Einnahmen")

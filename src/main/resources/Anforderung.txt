@@ -1,0 +1,12 @@
+Backend:
+    Finanzdaten speichern und kategorisieren (z.B. Einnahmen, Ausgaben).
+    Komplexe Auswertungen, z.B.
+    Budgetplanung, monatliche Ausgabenanalyse, Berichte.
+    Integrierte Banktransaktions-APls (z.B. Plaid, PSD2).
+    E-Mail-Benachrichtigungen bei Überschreitungen von Budgetgrenzen.
+    Exportieren von Finanzberichten in CSV oder PDF.
+
+Frontend:
+    Dashboard zur Anzeige von Ausgaben, Einnahmen und Budget.
+    Filteroptionen für Kategorien und Zeiträume.
+    Eingabe von Transaktionen und Erstellen von Budgets.
