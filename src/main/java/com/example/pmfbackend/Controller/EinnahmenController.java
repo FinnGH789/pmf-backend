@@ -2,7 +2,7 @@ package com.example.pmfbackend.Controller;
 
 
 import com.example.pmfbackend.Entity.Einnahmen;
-import com.example.pmfbackend.Repository.EinnahmenRepository;
+import com.example.pmfbackend.Service.EinnahmenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,32 +12,21 @@ import java.util.concurrent.atomic.AtomicReference;
 @RestController
 public class EinnahmenController {
 
-    private final EinnahmenRepository einnahmenRepository;
-
     @Autowired
-    public EinnahmenController(EinnahmenRepository einnahmenRepository) {
-        this.einnahmenRepository = einnahmenRepository;
-    }
+    private EinnahmenService einnahmenService;
 
     @GetMapping("/einnahmen")
-    public List<Einnahmen> getAllEinnahmen() {
-        return einnahmenRepository.findAll();
+    private List<Einnahmen> getAllEinnahmen() {
+        return einnahmenService.getEinnahmen();
     }
 
     @PostMapping("/addEinnahmen")
-    public Einnahmen addEinnahmen(@RequestBody Einnahmen einnahmen) {
-        return einnahmenRepository.save(einnahmen);
+    private Einnahmen addEinnahmen(@RequestBody Einnahmen einnahmen) {
+        return einnahmenService.addEinahme(einnahmen);
     }
 
-    public AtomicReference<Float> getSumEinnahmen() {
-        List<Einnahmen> sumList = einnahmenRepository.findAll();
-        AtomicReference<Float> sum = new AtomicReference<>((float) 0);
-        sumList.forEach(einnahmen -> {
-            sum.set(sumList.stream()
-                    .map(Einnahmen::getEinnahme)
-                    .reduce(0f, Float::sum));
-        });
-        return sum;
+    @GetMapping("/totalEinnahmen")
+    private float getSumEinnahmen() {
+        return einnahmenService.getTotalEinnahmen();
     }
-
 }
