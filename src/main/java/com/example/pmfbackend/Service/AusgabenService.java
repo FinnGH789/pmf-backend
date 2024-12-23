@@ -24,7 +24,7 @@ public class AusgabenService {
     public Float getTotalAusgaben() {
         return ausgabenRepository.findAll()
                 .stream()
-                .map(Ausgaben::getAusgaben)
+                .map(Ausgaben::getBetrag)
                 .reduce(0f, Float::sum);
     }
 }

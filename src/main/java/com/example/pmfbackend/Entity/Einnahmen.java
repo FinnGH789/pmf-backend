@@ -13,62 +13,63 @@ public class Einnahmen {
     private Long id;
 
     @Column
-    private String name;
+    private String beschreibung;
 
     @Column
-    private float einnahme;
+    private float betrag;
 
-    public Einnahmen() {}
+    @Column
+    private String zahlungsmittel;
 
-    public Einnahmen(Long id, String name, float einnahme) {
+    public Einnahmen() {
+    }
+
+    public Einnahmen(Long id, String name, float einnahme, String zahlungsmittel) {
         this.id = id;
-        this.name = name;
-        this.einnahme = einnahme;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public float getEinnahme() {
-        return einnahme;
-    }
-
-    public void setEinnahme(float einnahme) {
-        this.einnahme = einnahme;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+        this.beschreibung = name;
+        this.betrag = einnahme;
+        this.zahlungsmittel = zahlungsmittel;
     }
 
     public Long getId() {
         return id;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Einnahmen einnahmen = (Einnahmen) o;
-        return Float.compare(einnahme, einnahmen.einnahme) == 0 && Objects.equals(id, einnahmen.id) && Objects.equals(name, einnahmen.name);
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, einnahme);
+    public String getBeschreibung() {
+        return beschreibung;
+    }
+
+    public void setBeschreibung(String beschreibung) {
+        this.beschreibung = beschreibung;
+    }
+
+    public float getBetrag() {
+        return betrag;
+    }
+
+    public void setBetrag(float betrag) {
+        this.betrag = betrag;
+    }
+
+    public String getZahlungsmittel() {
+        return zahlungsmittel;
+    }
+
+    public void setZahlungsmittel(String zahlungsmittel) {
+        this.zahlungsmittel = zahlungsmittel;
     }
 
     @Override
     public String toString() {
         return "Einnahmen{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
-                ", einnahme=" + einnahme +
+                ", name='" + beschreibung + '\'' +
+                ", einnahme=" + betrag +
+                ", zahlungsmittel='" + zahlungsmittel + '\'' +
                 '}';
     }
 }

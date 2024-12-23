@@ -3,6 +3,7 @@ package com.example.pmfbackend.Entity;
 import jakarta.persistence.*;
 import java.util.Objects;
 
+// TODO: Maybe als Record, sofern das mit Entities kompatibel ist!
 
 @Entity
 @Table(name = "Ausgaben")
@@ -13,62 +14,62 @@ public class Ausgaben {
     private Long id;
 
     @Column
-    private String name;
+    private String beschreibung;
 
     @Column
-    private float ausgaben;
+    private float betrag;
+
+    @Column
+    private String zahlungsmittel;
 
     public Ausgaben() {}
 
-    public Ausgaben(Long id, String name, float ausgaben) {
+    public Ausgaben(Long id, String beschreibung, float betrag, String zahlungsmittel) {
         this.id = id;
-        this.name = name;
-        this.ausgaben = ausgaben;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public float getAusgaben() {
-        return ausgaben;
-    }
-
-    public void setAusgaben(float ausgaben) {
-        this.ausgaben = ausgaben;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+        this.beschreibung = beschreibung;
+        this.betrag = betrag;
+        this.zahlungsmittel = zahlungsmittel;
     }
 
     public Long getId() {
         return id;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Ausgaben ausgaben1 = (Ausgaben) o;
-        return Float.compare(ausgaben, ausgaben1.ausgaben) == 0 && Objects.equals(id, ausgaben1.id) && Objects.equals(name, ausgaben1.name);
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, ausgaben);
+    public String getBeschreibung() {
+        return beschreibung;
+    }
+
+    public void setBeschreibung(String beschreibung) {
+        this.beschreibung = beschreibung;
+    }
+
+    public float getBetrag() {
+        return betrag;
+    }
+
+    public void setBetrag(float betrag) {
+        this.betrag = betrag;
+    }
+
+    public String getZahlungsmittel() {
+        return zahlungsmittel;
+    }
+
+    public void setZahlungsmittel(String zahlungsmittel) {
+        this.zahlungsmittel = zahlungsmittel;
     }
 
     @Override
     public String toString() {
         return "Ausgaben{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
-                ", ausgaben=" + ausgaben +
+                ", beschreibung='" + beschreibung + '\'' +
+                ", betrag=" + betrag +
+                ", zahlungsmittel='" + zahlungsmittel + '\'' +
                 '}';
     }
 }

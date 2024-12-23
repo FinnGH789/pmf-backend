@@ -24,7 +24,7 @@ public class EinnahmenService {
     public Float getTotalEinnahmen() {
         return einnahmenRepository.findAll()
                 .stream()
-                .map(Einnahmen::getEinnahme)
+                .map(Einnahmen::getBetrag)
                 .reduce(0f, Float::sum);
     }
 }
